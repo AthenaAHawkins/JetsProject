@@ -5,11 +5,12 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 //no scanner
 public class Airfield {
+	Scanner scan = new Scanner(System.in);
 	private List<Jet> fleet;
-
 	public Airfield() {// I realized I don't know how to use constructors properly
 		readJets("jets.txt");
 	}
@@ -105,6 +106,40 @@ public class Airfield {
 				
 			}
 		}
+	}
+	public void addJet() {
+		System.out.println("Add your Jet. Starship, Freighter, Escape. (Model Speed Range and Price)");
+		String model =  scan.next();
+		double speed = scan.nextDouble();
+		int range = scan.nextInt();
+		long price = scan.nextLong();
+		
+		
+		if (model.toLowerCase().contains("star")) {
+		fleet.add(new Enterprise(model, speed, range, price));
+		return;
+		}
+		
+		if (model.toLowerCase().contains("freight")) {
+		fleet.add(new FederationFreighter(model,speed,range,price));
+		return;
+		}
+		if (model.toLowerCase().contains("escape")) {
+		fleet.add(new EscapePod(model,speed,range,price));
+		return;
+		}
+		System.out.println("Wrong Input, please select from the following Types: Starship, Freighter or EscapePod");
+		
+	}
+	
+	public void removeJet() {
+		System.out.println("Please select from the following list: ");
+		for (int index = 0; index < fleet.size(); index++) {
+		System.out.println(index + " " + fleet.get(index));
+		}
+		int selection = scan.nextInt();
+		fleet.remove(selection);
+		
 	}
 
 	public List<Jet> getFleet() {

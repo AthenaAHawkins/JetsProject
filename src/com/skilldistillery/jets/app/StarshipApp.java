@@ -42,7 +42,14 @@ public static void main(String[] args) {
 				af.evasiveManeuvers();
 				break;
 			case 7: 
-				
+				af.addJet();
+				break;
+			case 8:
+				af.removeJet();
+				break;
+			case 9:
+				ifRunning = false;
+				break;
 			default:
 				System.out.println("Improper input, try again");
 			}
