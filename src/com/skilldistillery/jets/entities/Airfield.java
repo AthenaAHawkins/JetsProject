@@ -11,7 +11,8 @@ import java.util.Scanner;
 public class Airfield {
 	Scanner scan = new Scanner(System.in);
 	private List<Jet> fleet;
-	public Airfield() {// I realized I don't know how to use constructors properly
+
+	public Airfield() {
 		readJets("jets.txt");
 	}
 
@@ -67,79 +68,81 @@ public class Airfield {
 			System.out.println(jet + " TIME REMAINING IN FLIGHT " + time);
 		}
 	}
+
 	public void viewFastestJet() {
 		double fastestJetSpeed = 0;
 		Jet fastestJet = null;
 		for (Jet jet : fleet) {
-			if(jet.getSpeed() > fastestJetSpeed) {
+			if (jet.getSpeed() > fastestJetSpeed) {
 				fastestJetSpeed = jet.getSpeed();
 				fastestJet = jet;
 			}
 		}
 		System.out.println(fastestJet);
 	}
-	
+
 	public void longestRange() {
 		Jet longestRanged = null;
 		int longestRange = 0;
 		for (Jet jet : fleet) {
-			if(jet.getRange() > longestRange) {
+			if (jet.getRange() > longestRange) {
 				longestRange = jet.getRange();
 				longestRanged = jet;
 			}
 		}
 		System.out.println(longestRanged);
 	}
-	
+
 	public void loadCargoCarrier() {
 		for (Jet jet : fleet) {
-			if(jet instanceof FederationFreighter) {
-				((FederationFreighter)jet).loadCargo();
-				
+			if (jet instanceof FederationFreighter) {
+				((FederationFreighter) jet).loadCargo();
+
 			}
 		}
 	}
+
 	public void evasiveManeuvers() {
 		for (Jet jet : fleet) {
-			if(jet instanceof Enterprise) {
-				((Enterprise)jet).DogFight();
-				
+			if (jet instanceof Enterprise) {
+				((Enterprise) jet).DogFight();
+
 			}
 		}
 	}
+
 	public void addJet() {
 		System.out.println("Add your Jet. Starship, Freighter, Escape. (Model Speed Range and Price)");
-		String model =  scan.next();
+		String model = scan.next();
 		double speed = scan.nextDouble();
 		int range = scan.nextInt();
 		long price = scan.nextLong();
-		
-		
+
 		if (model.toLowerCase().contains("star")) {
-		fleet.add(new Enterprise(model, speed, range, price));
-		return;
+			fleet.add(new Enterprise(model, speed, range, price));
+			return;
 		}
-		
-		if (model.toLowerCase().contains("freight")) {
-		fleet.add(new FederationFreighter(model,speed,range,price));
-		return;
+
+		if (model.toLowerCase().contains("fre")) {
+			fleet.add(new FederationFreighter(model, speed, range, price));
+			return;
 		}
-		if (model.toLowerCase().contains("escape")) {
-		fleet.add(new EscapePod(model,speed,range,price));
-		return;
+		if (model.toLowerCase().contains("esc")) {
+			fleet.add(new EscapePod(model, speed, range, price));
+			return;
 		}
 		System.out.println("Wrong Input, please select from the following Types: Starship, Freighter or EscapePod");
-		
+
 	}
-	
+
 	public void removeJet() {
 		System.out.println("Please select from the following list: ");
 		for (int index = 0; index < fleet.size(); index++) {
-		System.out.println(index + " " + fleet.get(index));
+			System.out.println(index + " " + fleet.get(index));
 		}
 		int selection = scan.nextInt();
 		fleet.remove(selection);
-		
+
 	}
 
 	public List<Jet> getFleet() {
@@ -149,7 +152,6 @@ public class Airfield {
 	public void setFleet(List<Jet> fleet) {
 		this.fleet = fleet;
 	}
-	
 
 }
 // fly all jets method 

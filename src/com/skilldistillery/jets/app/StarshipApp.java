@@ -7,17 +7,17 @@ import com.skilldistillery.jets.entities.Airfield;
 import com.skilldistillery.jets.entities.Jet;
 
 public class StarshipApp {
-public static void main(String[] args) {
-	StarshipApp sa = new StarshipApp();
-	sa.run();
-	
-	
-}
+	public static void main(String[] args) {
+		StarshipApp sa = new StarshipApp();
+		sa.run();
+
+	}
+
 	public void run() {
 		Airfield af = new Airfield();
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Welcome Captain, Startup Sequence, Launched");
-		
+
 		boolean ifRunning = true;
 		while (ifRunning) {
 			menu();
@@ -26,37 +26,39 @@ public static void main(String[] args) {
 			case 1:
 				af.listFleet();
 				break;
-			case 2: 
+			case 2:
 				af.flyAllJets();
 				break;
-			case 3: 
+			case 3:
 				af.viewFastestJet();
 				break;
-			case 4: 
+			case 4:
 				af.longestRange();
 				break;
-			case 5: 
+			case 5:
 				af.loadCargoCarrier();
 				break;
-			case 6: 
+			case 6:
 				af.evasiveManeuvers();
 				break;
-			case 7: 
+			case 7:
 				af.addJet();
 				break;
 			case 8:
 				af.removeJet();
 				break;
 			case 9:
+				System.out.println("System shutting down... Goodbye");
 				ifRunning = false;
 				break;
 			default:
 				System.out.println("Improper input, try again");
 			}
-		
+
 		}
-		
+
 	}
+
 	public void menu() {
 		System.out.println("1. List Fleet");
 		System.out.println("2. Fly All Jets");
@@ -67,21 +69,16 @@ public static void main(String[] args) {
 		System.out.println("7. Add a jet to fleet");
 		System.out.println("8. Remove a jet from fleet");
 		System.out.println("9. Quit");
-		
-	}
-	
-	
 
-	
-	
+	}
+
 	@Override
 	public String toString() {
 		return "StarshipApp [getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
 				+ super.toString() + "]";
 	}
-		
+
 // owns scanner
 // needs to go to airfield app for all information about the jets 
-
 
 }

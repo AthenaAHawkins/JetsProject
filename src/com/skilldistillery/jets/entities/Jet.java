@@ -17,9 +17,9 @@ public abstract class Jet {
 	}
 
 	public abstract void fly();
-	
+
 	public void getSpeedInLightYears() {
-		
+
 	}
 
 	public String getModel() {
