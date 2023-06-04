@@ -12,6 +12,12 @@ public class FederationFreighter extends Jet implements CargoCarrier{
 		
 	}
 
+	@Override
+	public String toString() {
+		return "Federation Freighter Model: " + getModel() + " Speed: " + getSpeed() + " Range: "
+				+ getRange() + " Price: " + getPrice();
+	}
+
 	
 
 	

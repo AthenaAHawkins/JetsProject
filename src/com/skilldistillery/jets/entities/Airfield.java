@@ -9,9 +9,10 @@ import java.util.List;
 //no scanner
 public class Airfield {
 	private List<Jet> fleet;
-//	String filename = "Jets.txt";
-//	Airfield af = new Airfield();
-//	List<Jet> jets = af.readJets(filename);
+
+	public Airfield() {// I realized I don't know how to use constructors properly
+		readJets("jets.txt");
+	}
 
 	private List<Jet> readJets(String filename) {
 		fleet = new ArrayList<>();
@@ -28,23 +29,43 @@ public class Airfield {
 				if (name.equals("Starship Enterprise")) {
 					Jet j = new Enterprise(name, speed, range, price);
 					fleet.add(j);
+//					System.out.println(j);
 
 				}
 				if (name.equals("Federation Freighter")) {
 					Jet j = new FederationFreighter(name, speed, range, price);
 					fleet.add(j);
+//					System.out.println(j);
 
 				}
 				if (name.equals("Escape Pod")) {
 					Jet j = new EscapePod(name, speed, range, price);
 					fleet.add(j);
+//					System.out.println(j);
 				}
-
 			}
 		} catch (IOException e) {
 			System.err.println(e);
 		}
 		return fleet;
+	}
+
+	public void listFleet() {
+		System.out.println("All docked aircraft are as follows: ");
+		for (int i = 0; i < fleet.size(); i++) {
+			if (fleet != null) {
+				System.out.println(fleet.get(i));
+			}
+		}
+	}
+
+	public void flyAllJets() { // DST distance speed time
+		for (Jet jet : fleet) {
+			double speed = jet.getSpeed();
+			int range = jet.getRange();
+			double time = range / speed;
+			System.out.println(jet + " TIME REMAINING IN FLIGHT " + time);
+		}
 	}
 
 	public List<Jet> getFleet() {

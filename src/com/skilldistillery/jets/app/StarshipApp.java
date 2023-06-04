@@ -11,10 +11,10 @@ public static void main(String[] args) {
 	StarshipApp sa = new StarshipApp();
 	sa.run();
 	
+	
 }
 	public void run() {
 		Airfield af = new Airfield();
-		List <Jet> fleet = af.getFleet();
 		System.out.println("Welcome Captain, Startup Sequence, Launched");
 		Scanner scan = new Scanner(System.in);
 		
@@ -24,9 +24,11 @@ public static void main(String[] args) {
 			int choice = scan.nextInt();
 			switch (choice) {
 			case 1:
-				listFleet(fleet);
+				af.listFleet();
 				break;
-
+			case 2: 
+				af.flyAllJets();
+				break;
 			default:
 				System.out.println("Improper input, try again");
 			}
@@ -47,14 +49,10 @@ public static void main(String[] args) {
 		
 	}
 	
-	public void listFleet(List<Jet> list) {
-		System.out.println("All docked aircraft are as follows: ");
-		for(int i = 0; i < list.size(); i++ ) {
-			if(list != null) {
-				System.out.println(list.toString());
-			}
-		}
-	}
+	
+	
+	
+	
 	@Override
 	public String toString() {
 		return "StarshipApp [getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
