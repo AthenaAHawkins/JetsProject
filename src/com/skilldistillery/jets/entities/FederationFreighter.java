@@ -8,14 +8,19 @@ public class FederationFreighter extends Jet implements CargoCarrier{
 
 	@Override
 	public void loadCargo() {
-		
-		
+		System.out.println("Make sure we have enough rations for our off world explorations!");
 	}
 
 	@Override
 	public String toString() {
 		return "Federation Freighter Model: " + getModel() + " Speed: " + getSpeed() + " Range: "
 				+ getRange() + " Price: " + getPrice();
+	}
+
+	@Override
+	public void fly() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	

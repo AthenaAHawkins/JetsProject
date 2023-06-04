@@ -10,6 +10,12 @@ public class EscapePod extends Jet {
 	public String toString() {
 		return "Escape Pod Model: " + getModel() + " Speed: " + getSpeed() + " Range: " + getRange()
 				+ " Price: " + getPrice();
+	}
+
+	@Override
+	public void fly() {
+		// TODO Auto-generated method stub
+		
 	}		
 
 	

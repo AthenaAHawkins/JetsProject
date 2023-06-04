@@ -14,6 +14,11 @@ public class Enterprise extends Jet implements CombatReady{
 
 	@Override
 	public void DogFight() {
+		System.out.println("Pew Pew Pew Take Evasive Manuevers!");
+	}
+
+	@Override
+	public void fly() {
 		// TODO Auto-generated method stub
 		
 	}

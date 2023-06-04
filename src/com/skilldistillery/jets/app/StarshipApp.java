@@ -15,8 +15,8 @@ public static void main(String[] args) {
 }
 	public void run() {
 		Airfield af = new Airfield();
-		System.out.println("Welcome Captain, Startup Sequence, Launched");
 		Scanner scan = new Scanner(System.in);
+		System.out.println("Welcome Captain, Startup Sequence, Launched");
 		
 		boolean ifRunning = true;
 		while (ifRunning) {
@@ -29,6 +29,20 @@ public static void main(String[] args) {
 			case 2: 
 				af.flyAllJets();
 				break;
+			case 3: 
+				af.viewFastestJet();
+				break;
+			case 4: 
+				af.longestRange();
+				break;
+			case 5: 
+				af.loadCargoCarrier();
+				break;
+			case 6: 
+				af.evasiveManeuvers();
+				break;
+			case 7: 
+				
 			default:
 				System.out.println("Improper input, try again");
 			}
@@ -50,7 +64,7 @@ public static void main(String[] args) {
 	}
 	
 	
-	
+
 	
 	
 	@Override

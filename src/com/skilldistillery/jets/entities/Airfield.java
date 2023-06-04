@@ -26,23 +26,22 @@ public class Airfield {
 				double speed = Double.parseDouble(jetRecord[1]);
 				int range = Integer.parseInt(jetRecord[2]);
 				long price = Long.parseLong(jetRecord[3]);
+				Jet j = null;
 				if (name.equals("Starship Enterprise")) {
-					Jet j = new Enterprise(name, speed, range, price);
-					fleet.add(j);
+					j = new Enterprise(name, speed, range, price);
 //					System.out.println(j);
 
 				}
 				if (name.equals("Federation Freighter")) {
-					Jet j = new FederationFreighter(name, speed, range, price);
-					fleet.add(j);
+					j = new FederationFreighter(name, speed, range, price);
 //					System.out.println(j);
 
 				}
 				if (name.equals("Escape Pod")) {
-					Jet j = new EscapePod(name, speed, range, price);
-					fleet.add(j);
+					j = new EscapePod(name, speed, range, price);
 //					System.out.println(j);
 				}
+				fleet.add(j);
 			}
 		} catch (IOException e) {
 			System.err.println(e);
@@ -59,12 +58,52 @@ public class Airfield {
 		}
 	}
 
-	public void flyAllJets() { // DST distance speed time
+	public void flyAllJets() { // DST distance speed time // worked through them till I settled upon the fore
 		for (Jet jet : fleet) {
 			double speed = jet.getSpeed();
 			int range = jet.getRange();
 			double time = range / speed;
 			System.out.println(jet + " TIME REMAINING IN FLIGHT " + time);
+		}
+	}
+	public void viewFastestJet() {
+		double fastestJetSpeed = 0;
+		Jet fastestJet = null;
+		for (Jet jet : fleet) {
+			if(jet.getSpeed() > fastestJetSpeed) {
+				fastestJetSpeed = jet.getSpeed();
+				fastestJet = jet;
+			}
+		}
+		System.out.println(fastestJet);
+	}
+	
+	public void longestRange() {
+		Jet longestRanged = null;
+		int longestRange = 0;
+		for (Jet jet : fleet) {
+			if(jet.getRange() > longestRange) {
+				longestRange = jet.getRange();
+				longestRanged = jet;
+			}
+		}
+		System.out.println(longestRanged);
+	}
+	
+	public void loadCargoCarrier() {
+		for (Jet jet : fleet) {
+			if(jet instanceof FederationFreighter) {
+				((FederationFreighter)jet).loadCargo();
+				
+			}
+		}
+	}
+	public void evasiveManeuvers() {
+		for (Jet jet : fleet) {
+			if(jet instanceof Enterprise) {
+				((Enterprise)jet).DogFight();
+				
+			}
 		}
 	}
 
@@ -75,6 +114,7 @@ public class Airfield {
 	public void setFleet(List<Jet> fleet) {
 		this.fleet = fleet;
 	}
+	
 
 }
 // fly all jets method 
