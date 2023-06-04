@@ -112,7 +112,7 @@ public class Airfield {
 	}
 
 	public void addJet() {
-		System.out.println("Add your Jet. Starship, Freighter, Escape. (Model Speed Range and Price)");
+		System.out.println("Add your Jet. Starship, Freighter, or an EscapePod. (Enter in Model, Speed, Range, and Price)");
 		String model = scan.next();
 		double speed = scan.nextDouble();
 		int range = scan.nextInt();
@@ -138,7 +138,7 @@ public class Airfield {
 	public void removeJet() {
 		System.out.println("Please select from the following list: ");
 		for (int index = 0; index < fleet.size(); index++) {
-			System.out.println(index + " " + fleet.get(index));
+			System.out.println(index + ". " + fleet.get(index));
 		}
 		int selection = scan.nextInt();
 		fleet.remove(selection);
